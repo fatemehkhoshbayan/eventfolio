@@ -1,0 +1,21 @@
+<footer class="w-full mt-xl fixed bottom-0 bg-surface-container-low">
+  <div class="border-t border-outline-variant opacity-20"></div>
+  <div
+    class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-gutter py-lg"
+  >
+    <img src="logo-stacked-light.png" alt="logo" width="150" height="150" />
+
+    <div class="flex flex-wrap gap-md justify-center">
+      @for (link of FOOTER_LINKS; track link.id) {
+        <a
+          class="text-on-surface-variant font-caption text-body-md hover:text-tertiary transition-opacity opacity-80 hover:opacity-100"
+          href="{{ link.href }}"
+          >{{ link.label }}</a
+        >
+      }
+    </div>
+    <p class="font-caption text-caption text-on-surface-variant mt-xs opacity-80">
+      © 2026 Eventfolio. Documenting the technical era.
+    </p>
+  </div>
+</footer>

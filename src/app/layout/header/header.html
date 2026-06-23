@@ -1,0 +1,25 @@
+<header class="w-full top-0 sticky z-50 bg-background/80 backdrop-blur-md">
+  <div
+    class="flex items-center gap-xl content-center justify-between max-w-container-max mx-auto px-gutter py-md"
+  >
+    <a href="/">
+      <img src="logo-horizontal-light.png" alt="logo" width="200" height="200" />
+    </a>
+    <nav class="md:flex items-center gap-lg">
+      @for (link of NAV_LINKS; track link.id) {
+        <a
+          class="text-primary border-primary font-semibold font-body-md text-body-md hover:text-on-primary-fixed transition-colors duration-200 hover:border-b-2"
+          href="{{ link.href }}"
+          >{{ link.label }}</a
+        >
+      }
+    </nav>
+    <div class="flex items-center gap-md">
+      <button
+        class="bg-primary text-on-primary px-md py-sm rounded-full font-label-md text-label-md active:scale-95 transition-transform duration-150"
+      >
+        Add Event
+      </button>
+    </div>
+  </div>
+</header>
