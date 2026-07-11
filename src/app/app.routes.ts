@@ -1,6 +1,6 @@
-import { Routes } from '@angular/router';
+import { Home, NotFound } from '@/features';
 import { MainLayout } from '@/layout';
-import { Home } from '@/features';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
@@ -9,7 +9,16 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        pathMatch: 'full',
         component: Home,
+      },
+      {
+        path: 'wall',
+        loadComponent: () => import('@/features/wall/wall').then((m) => m.Wall),
+      },
+      {
+        path: '**',
+        component: NotFound,
       },
     ],
   },
