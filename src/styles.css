@@ -2,6 +2,8 @@
 
 @import 'tailwindcss';
 
+@plugin "@iconify/tailwind4";
+
 @theme {
   /* Colors */
   --color-surface-container-lowest: #ffffff;
@@ -50,6 +52,7 @@
   --color-tertiary-container: #ffcec7;
   --color-secondary-fixed: #dce5db;
   --color-primary: #476459;
+  --color-primary-light: #e2f0e9;
   --color-surface: #faf9f7;
 
   /* Border Radius */

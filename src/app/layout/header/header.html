@@ -2,14 +2,16 @@
   <div
     class="flex items-center gap-xl content-center justify-between max-w-container-max mx-auto px-gutter py-md"
   >
-    <a href="/">
+    <a routerLink="/" routerLinkActive="border-primary" [routerLinkActiveOptions]="{ exact: true }">
       <img src="logo-horizontal-light.png" alt="logo" width="200" height="200" />
     </a>
     <nav class="md:flex items-center gap-lg">
       @for (link of NAV_LINKS; track link.id) {
         <a
-          class="text-primary border-primary font-semibold font-body-md text-body-md hover:text-on-primary-fixed transition-colors duration-200 hover:border-b-2"
-          href="{{ link.href }}"
+          class="text-primary border-primary font-semibold font-body-md text-body-md hover:text-on-primary-fixed transition-colors duration-200 hover:border-b-2 cursor-pointer"
+          [routerLink]="link.href"
+          routerLinkActive="border-b-2 border-primary"
+          [routerLinkActiveOptions]="link.href === '/' ? { exact: true } : { exact: false }"
           >{{ link.label }}</a
         >
       }

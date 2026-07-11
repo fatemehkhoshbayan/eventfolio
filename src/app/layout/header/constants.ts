@@ -1,10 +1,5 @@
 export const NAV_LINKS = [
   {
-    id: 'home',
-    label: 'Home',
-    href: '/',
-  },
-  {
     id: 'wall',
     label: 'Wall',
     href: '/wall',
