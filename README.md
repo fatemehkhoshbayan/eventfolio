@@ -6,8 +6,9 @@ Built with Angular 22, Tailwind CSS, and a custom design system.
 
 ## Features
 
-- **Home** — landing page with project overview
-- **Wall** — timeline of events and milestones *(planned)*
+- **Home** — hero section with tier summary cards (Events, Photos, People)
+- **Wall** — timeline of events and milestones *(scaffolded)*
+- **Not Found** — fallback page for unknown routes
 - **People** — connections from conferences and meetups *(planned)*
 - **Gallery** — photos and media from your journey *(planned)*
 - **Profile** — your public engineering profile *(planned)*
@@ -16,6 +17,7 @@ Built with Angular 22, Tailwind CSS, and a custom design system.
 
 - [Angular](https://angular.dev/) 22 (standalone components, signals-ready)
 - [Tailwind CSS](https://tailwindcss.com/) 4
+- [Iconify](https://iconify.design/) with [Lucide](https://lucide.dev/) icons via `@iconify/tailwind4`
 - [Vitest](https://vitest.dev/) for unit tests
 - [Prettier](https://prettier.io/) for formatting
 
@@ -45,20 +47,34 @@ Open [http://localhost:4200](http://localhost:4200). The app reloads when you ch
 | `npm run watch` | Development build with watch mode |
 | `npm test` | Run unit tests with Vitest |
 
+## Routes
+
+| Path | Page | Status |
+| --- | --- | --- |
+| `/` | Home | Implemented |
+| `/wall` | Wall | Scaffolded (lazy-loaded) |
+| `/**` | Not Found | Implemented |
+
+Navigation links for People, Gallery, and Profile are in the header but not yet wired to routes.
+
 ## Project structure
 
 ```
 src/
 ├── app/
-│   ├── features/       # Route-level pages (home, wall, etc.)
-│   ├── layout/         # Header, footer, main layout shell
+│   ├── features/       # Route-level pages
+│   │   ├── home/       # Landing page with hero and tier cards
+│   │   ├── wall/       # Event timeline (in progress)
+│   │   └── not-found/  # 404 fallback page
+│   ├── layout/         # Header, footer, and main layout shell
+│   ├── shared/         # Reusable UI components (e.g. InfoCard)
 │   ├── app.routes.ts   # Application routes
 │   └── app.config.ts   # App providers and configuration
-├── styles.css          # Global styles and design tokens
-└── main.ts               # Application bootstrap
+├── styles.css          # Global styles, design tokens, and Tailwind theme
+└── main.ts             # Application bootstrap
 ```
 
-Path aliases (e.g. `@/layout`, `@/features`) are configured in `tsconfig.json`.
+Path aliases (e.g. `@/layout`, `@/features`, `@/shared`) are configured in `tsconfig.json`.
 
 ## Code generation
 
